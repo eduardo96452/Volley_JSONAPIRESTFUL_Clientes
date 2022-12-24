@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/lbldescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/lblbarcode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Codigo_Barra"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/lblpreciounidad"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Preciounidad"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/lblunidad"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Unidad"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/lblfechacreacion"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Fechacreacion"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6E98D6" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#006E98D6" />
+</LinearLayout>

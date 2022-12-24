@@ -25,7 +25,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:background="#50AF3A"
-        android:text="@string/clientes"
+        android:text="@string/productos"
         android:textAlignment="center"
         android:textSize="48sp"
         android:textStyle="bold" />

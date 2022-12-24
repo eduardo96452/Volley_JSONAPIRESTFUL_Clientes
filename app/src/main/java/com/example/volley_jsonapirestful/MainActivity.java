@@ -18,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.volley_jsonapirestful.adaptadores.adaptadorcliente;
 import com.example.volley_jsonapirestful.models.Clientes;
+import com.example.volley_jsonapirestful.models.Productos;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +36,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         lstProductos = (ListView) findViewById(R.id.lstUser);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://api.uealecpeterson.net/public/clientes/search";
+
+        //url para los clientes
+        //String url ="https://api.uealecpeterson.net/public/clientes/search";
+
+        //url para los productos
+        String url ="https://api.uealecpeterson.net/public/productos/search";
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -45,13 +51,18 @@ public class MainActivity extends AppCompatActivity {
                         //corregir ↓
                         try {
                             JSONObject JSONlista =  new JSONObject(response);
-                            //JSONArray JSONlistaUsuarios=  new JSONArray(JSONlista);
-                            JSONArray JSONlistaUsuarios= JSONlista.getJSONArray("clientes");
-                            ArrayList<Clientes> lstProductoss = Clientes.JsonObjectsBuild(JSONlistaUsuarios);
+                            //JSONArray JSONlistaproductos=  new JSONArray(JSONlista);
+                            JSONArray JSONlistaproductos= JSONlista.getJSONArray("productos");
 
-                            com.example.volley_jsonapirestful.adaptadores.adaptadorcliente adapatorUsuario = new com.example.volley_jsonapirestful.adaptadores.adaptadorcliente( getApplicationContext(), lstProductoss);
+                            //para llenar el listview con los clientes
+                            //ArrayList<Clientes> lstProductoss = Clientes.JsonObjectsBuild(JSONlistaproductos);
+                            //com.example.volley_jsonapirestful.adaptadores.adaptadorcliente adapatorUsuario = new com.example.volley_jsonapirestful.adaptadores.adaptadorcliente( getApplicationContext(), lstProductoss);
 
-                            lstProductos.setAdapter(adapatorUsuario);
+                            //para llenar el listview con los productos
+                            ArrayList<Productos> lstProductoss = Productos.JsonObjectsBuild(JSONlistaproductos);
+                            com.example.volley_jsonapirestful.adaptadores.adaptadorproducto adapatorproducto = new com.example.volley_jsonapirestful.adaptadores.adaptadorproducto( getApplicationContext(), lstProductoss);
+
+                            lstProductos.setAdapter(adapatorproducto);
 
 
                         //corregir ↑
@@ -69,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headerMap = new HashMap<String, String>();
+                //headerMap.put("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZHVzciI6OSwiZW1haWwiOiJjemFtYnJhbm9AdXRlcS5lZHUuZWMiLCJpYXQiOjE2NzE0OTYzOTEsImV4cCI6MTY3MTg1NjM5MX0.hZooTHB43sV3tdjL2unBAk7xIdClGRg3ltWUFTEfzyc");
                 headerMap.put("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZHVzciI6OSwiZW1haWwiOiJjemFtYnJhbm9AdXRlcS5lZHUuZWMiLCJpYXQiOjE2NzE0OTYzOTEsImV4cCI6MTY3MTg1NjM5MX0.hZooTHB43sV3tdjL2unBAk7xIdClGRg3ltWUFTEfzyc");
                 return headerMap;
             }
